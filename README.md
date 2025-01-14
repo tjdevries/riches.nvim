@@ -20,3 +20,31 @@ Two-phase LLM shenanigans.
 2. LLM responds with file paths that are relevant.
 3. read those files, send as new message
 4. ask for a diff to update the files
+
+## Example Usage
+
+```lua
+-- TODO: Caching (some files should be cached maybe?)
+
+return {
+	system = [[
+You are an experienced elixir programmer. You know so many things about Phoenix, Ecto, and the Phoenix framework.
+
+This is a project called FamBook. It's used to share photos with your family!
+
+Do not add comments to the diff, be brief. Only include the code changes.
+Always send code edits as a unified diff. I will apply the diff to my own code.
+]],
+	include = {
+		{ "mix.exs" },
+		{
+			"lib/fambook.ex",
+			"lib/fambook/*.ex",
+			"priv/repo/migrations/*.exs",
+			-- transforms = {
+			-- 	require("riches.outline").treesitter,
+			-- },
+		},
+	},
+}
+```
