@@ -6,7 +6,7 @@ We gotta make ourselves rich shipping so fast.
 
 ## Installation
 
-You should just know by know.
+You should just know by now.
 
 ## Usage
 
